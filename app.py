@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 
 
 app = Flask(__name__)
@@ -17,6 +17,13 @@ def home():
 @app.get("/books")
 def list_books():
     return jsonify(books)
+
+
+@app.get("/books/search")
+def search_books():
+    query = request.args.get("q", "").strip().lower()
+    matches = [book for book in books if query in book["title"].lower()]
+    return jsonify(matches)
 
 
 if __name__ == "__main__":
