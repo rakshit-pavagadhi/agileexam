@@ -35,7 +35,6 @@ def verify_invalid_login(driver):
     print("Invalid credentials message verified")
 def main():
     driver = webdriver.Chrome()
-    driver.maximize_window()
     try:
         verify_successful_login(driver)
         verify_invalid_login(driver)
@@ -43,5 +42,3 @@ def main():
         driver.quit()
 if __name__ == "__main__":
     main()
-#write a dockerfile for a python based library management application, build image, run container with suitable port mapping and verify its status using docker commands
-#create a git repository for a library management system, create a branch named feature/book-search, modify a python file, commit the changes, merge branch into main, display commit history
